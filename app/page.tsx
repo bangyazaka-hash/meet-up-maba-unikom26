@@ -5,7 +5,6 @@ import {
   MapPin,
   Calendar,
   Clock,
-  CheckCircle,
   MessageCircle,
   Video,
   ChevronDown,
@@ -39,7 +38,7 @@ interface BenefitItem {
 /*  Constants                                                          */
 /* ------------------------------------------------------------------ */
 
-const EVENT_DATE = new Date('2025-09-13T08:30:00+07:00');
+const EVENT_DATE = new Date('2026-09-13T08:30:00+07:00');
 
 const BENEFITS: BenefitItem[] = [
   { icon: <Users className="h-5 w-5" />, text: 'Relasi antar jurusan se-UNIKOM' },
@@ -107,10 +106,10 @@ function padZero(n: number): string {
 function CountdownBlock({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col items-center gap-1">
-      <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-slate-900 text-2xl font-bold text-amber-400 shadow-lg sm:h-20 sm:w-20 sm:text-3xl">
+      <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-slate-900/80 text-2xl font-bold text-amber-400 shadow-lg sm:h-20 sm:w-20 sm:text-3xl">
         {value}
       </div>
-      <span className="text-xs font-medium tracking-wide text-slate-500 uppercase sm:text-sm">
+      <span className="text-[10px] font-medium tracking-wider text-slate-500 uppercase sm:text-xs">
         {label}
       </span>
     </div>
@@ -175,7 +174,6 @@ export default function MeetupMabaPage() {
       {/* ============================================================ */}
       <nav className="sticky top-0 z-50 border-b border-slate-200/60 bg-white/80 backdrop-blur-lg">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-          {/* Logo */}
           <button
             onClick={() => scrollTo('hero')}
             className="flex items-center gap-2 text-lg font-extrabold tracking-tight text-slate-900"
@@ -186,7 +184,6 @@ export default function MeetupMabaPage() {
             Meetup Maba
           </button>
 
-          {/* Desktop links */}
           <div className="hidden items-center gap-6 md:flex">
             {[
               { label: 'Info Acara', id: 'info' },
@@ -209,7 +206,6 @@ export default function MeetupMabaPage() {
             </button>
           </div>
 
-          {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             className="rounded-lg p-2 text-slate-600 transition-colors hover:bg-slate-100 md:hidden"
@@ -221,7 +217,6 @@ export default function MeetupMabaPage() {
           </button>
         </div>
 
-        {/* Mobile dropdown */}
         {mobileMenuOpen && (
           <div className="border-t border-slate-100 bg-white px-4 pb-4 pt-2 md:hidden">
             {[
@@ -275,34 +270,22 @@ export default function MeetupMabaPage() {
               <br className="hidden sm:block" /> UNIKOM 2025
             </h1>
 
-            {/* Sub-headline */}
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-400 sm:text-base lg:text-lg">
-              Selamat datang di keluarga besar UNIKOM! 🎉 Temui teman-teman baru dari
-              berbagai jurusan, dapatkan insight dari senior, dan mulai perjalanan
-              kampus-mu dengan seru.
-            </p>
-
-            {/* Countdown */}
-            <div className="mt-10">
+            {/* ✅ COUNTDOWN TIMER — menggantikan paragraf sub-headline */}
+            <div className="mt-8">
               {isEventPassed ? (
                 <p className="text-lg font-semibold text-amber-400">
                   🎉 Acara sudah dimulai! Lihat info di bawah ya.
                 </p>
               ) : (
-                <>
-                  <p className="mb-4 text-xs font-semibold tracking-widest text-slate-500 uppercase">
-                    Hitung Mundur Menuju Acara
-                  </p>
-                  <div className="mx-auto flex max-w-md items-center justify-center gap-3 sm:gap-4">
-                    <CountdownBlock value={padZero(timeLeft.days)} label="Hari" />
-                    <span className="mt-[-18px] text-xl font-bold text-slate-600">:</span>
-                    <CountdownBlock value={padZero(timeLeft.hours)} label="Jam" />
-                    <span className="mt-[-18px] text-xl font-bold text-slate-600">:</span>
-                    <CountdownBlock value={padZero(timeLeft.minutes)} label="Menit" />
-                    <span className="mt-[-18px] text-xl font-bold text-slate-600">:</span>
-                    <CountdownBlock value={padZero(timeLeft.seconds)} label="Detik" />
-                  </div>
-                </>
+                <div className="mx-auto flex max-w-md items-center justify-center gap-3 sm:gap-4">
+                  <CountdownBlock value={padZero(timeLeft.days)} label="Hari" />
+                  <span className="mt-[-18px] text-xl font-bold text-slate-600">:</span>
+                  <CountdownBlock value={padZero(timeLeft.hours)} label="Jam" />
+                  <span className="mt-[-18px] text-xl font-bold text-slate-600">:</span>
+                  <CountdownBlock value={padZero(timeLeft.minutes)} label="Menit" />
+                  <span className="mt-[-18px] text-xl font-bold text-slate-600">:</span>
+                  <CountdownBlock value={padZero(timeLeft.seconds)} label="Detik" />
+                </div>
               )}
             </div>
 
@@ -355,7 +338,7 @@ export default function MeetupMabaPage() {
                 />
               </div>
 
-              <div className="mt-6 rounded-xl bg-cyan-50 border border-cyan-100 p-4">
+              <div className="mt-6 rounded-xl border border-cyan-100 bg-cyan-50 p-4">
                 <p className="text-sm leading-relaxed text-cyan-800">
                   <span className="font-semibold">💡 Tips:</span> Datang 15 menit lebih
                   awal untuk registrasi on-site dan dapatkan spot duduk terbaik. Bawa
@@ -436,7 +419,6 @@ export default function MeetupMabaPage() {
             {/* Left — Price Card */}
             <div className="lg:col-span-2">
               <div className="relative h-full overflow-hidden rounded-2xl bg-slate-900 p-6 text-white shadow-xl sm:p-8">
-                {/* Decorative circle */}
                 <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-amber-400/15 blur-2xl" />
 
                 <p className="text-xs font-semibold tracking-widest text-slate-400 uppercase">
@@ -457,7 +439,10 @@ export default function MeetupMabaPage() {
                     const msg = encodeURIComponent(
                       'Halo, saya ingin mendaftar Meetup Maba UNIKOM 2025!'
                     );
-                    window.open(`https://chat.whatsapp.com/DummyLinkGrupMabaUNIKOM?text=${msg}`, '_blank');
+                    window.open(
+                      `https://chat.whatsapp.com/DummyLinkGrupMabaUNIKOM?text=${msg}`,
+                      '_blank'
+                    );
                   }}
                   className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-slate-900 shadow-lg shadow-amber-400/20 transition-all hover:bg-amber-500 hover:shadow-xl active:scale-[0.97]"
                 >
@@ -505,7 +490,6 @@ export default function MeetupMabaPage() {
             subtitle="Sneak peek suasana venue yang bakal jadi lokasi acara kita."
           />
 
-          {/* Photo Grid */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {GALLERY_IMAGES.map((img, i) => (
               <div
@@ -518,7 +502,6 @@ export default function MeetupMabaPage() {
                   loading="lazy"
                   className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-64"
                 />
-                {/* Hover overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <p className="absolute bottom-3 left-4 right-4 text-xs font-medium text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   {img.alt}
@@ -527,16 +510,15 @@ export default function MeetupMabaPage() {
             ))}
           </div>
 
-          {/* Video Embed */}
           <div className="mt-10">
-            <div className="flex items-center gap-2 mb-4">
+            <div className="mb-4 flex items-center gap-2">
               <Video className="h-5 w-5 text-cyan-600" />
               <h3 className="text-lg font-bold text-slate-900">Video Venue</h3>
             </div>
             <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-slate-100 bg-slate-900 shadow-md">
               <iframe
                 className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
+                src="https://www.youtube.com/embed//PI40LZ8Uow4?rel=0&modestbranding=1"
                 title="Video Venue Meetup Maba UNIKOM"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -552,7 +534,6 @@ export default function MeetupMabaPage() {
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
           <div className="flex flex-col items-center gap-4 text-center">
-            {/* Logo */}
             <div className="flex items-center gap-2 text-lg font-extrabold tracking-tight text-slate-900">
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400 text-sm font-black text-slate-900">
                 M
@@ -587,7 +568,7 @@ export default function MeetupMabaPage() {
               </a>
             </div>
 
-            <div className="mt-2 border-t border-slate-100 pt-6 w-full">
+            <div className="mt-2 w-full border-t border-slate-100 pt-6">
               <p className="text-xs text-slate-400">
                 &copy; {new Date().getFullYear()} Meetup Maba UNIKOM. Made with{' '}
                 <span className="text-red-400">♥</span> for freshers.
