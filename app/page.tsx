@@ -53,6 +53,8 @@ interface BenefitItem {
 
 const EVENT_DATE = new Date('2026-09-08T13:30:00+07:00');
 
+const INITIAL_TIME: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
 const BENEFITS: BenefitItem[] = [
   { icon: <Users className="h-5 w-5" />, text: 'Relasi antar jurusan se-UNIKOM' },
   { icon: <Sparkles className="h-5 w-5" />, text: 'Sharing session bareng senior berpengalaman' },
@@ -97,7 +99,7 @@ function calculateTimeLeft(): TimeLeft {
   const distance = EVENT_DATE.getTime() - now;
 
   if (distance <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return { ...INITIAL_TIME };
   }
 
   return {
@@ -112,6 +114,10 @@ function padZero(n: number): string {
   return n.toString().padStart(2, '0');
 }
 
+function isAllZero(t: TimeLeft): boolean {
+  return t.days === 0 && t.hours === 0 && t.minutes === 0 && t.seconds === 0;
+}
+
 /* ------------------------------------------------------------------ */
 /*  Sub-components                                                     */
 /* ------------------------------------------------------------------ */
@@ -119,7 +125,7 @@ function padZero(n: number): string {
 function CountdownBlock({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col items-center gap-1.5">
-      <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-2xl bg-slate-900/80 text-3xl font-bold text-amber-400 shadow-lg sm:h-24 sm:w-24 sm:text-4xl lg:h-28 lg:w-28">
+      <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-900/80 text-2xl font-bold text-amber-400 shadow-lg sm:h-24 sm:w-24 sm:text-4xl lg:h-28 lg:w-28">
         {value}
       </div>
       <span className="text-[10px] font-medium tracking-wider text-slate-500 uppercase sm:text-xs">
@@ -156,28 +162,33 @@ function InfoChip({ icon, label }: { icon: React.ReactNode; label: string }) {
 /* ------------------------------------------------------------------ */
 
 export default function MeetupMabaPage() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft);
+  /* ✅ Inisialisasi dengan 0 — server & client sama, tidak ada mismatch */
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(INITIAL_TIME);
+  const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  /* ✅ Hitung waktu asli hanya setelah mount di client */
+  useEffect(() => {
+    setMounted(true);
+    setTimeLeft(calculateTimeLeft());
+  }, []);
 
   const tick = useCallback(() => {
     setTimeLeft(calculateTimeLeft());
   }, []);
 
   useEffect(() => {
+    if (!mounted) return;
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, [tick]);
+  }, [tick, mounted]);
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMobileMenuOpen(false);
   };
 
-  const isEventPassed =
-    timeLeft.days === 0 &&
-    timeLeft.hours === 0 &&
-    timeLeft.minutes === 0 &&
-    timeLeft.seconds === 0;
+  const eventPassed = mounted && isAllZero(timeLeft);
 
   return (
     <div className={`${dmSans.variable} min-h-screen font-sans bg-slate-50 text-slate-900 antialiased`}>
@@ -262,7 +273,7 @@ export default function MeetupMabaPage() {
         <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
         <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-amber-400/10 blur-3xl" />
 
-        <div className="relative mx-auto max-w-6xl px-4 pb-20 sm:px-6 sm:pb-24 sm:pt-28 lg:pt-36">
+        <div className="relative mx-auto max-w-6xl px-4 pb-32 pt-28 sm:px-6 sm:pb-28 sm:pt-28 lg:pt-36">
           <div className="text-center">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-amber-300 uppercase">
               <Sparkles className="h-3.5 w-3.5" />
@@ -280,20 +291,32 @@ export default function MeetupMabaPage() {
               <br className="hidden sm:block" /> UNIKOM 2026
             </h1>
 
-            {/* Countdown Timer */}
+            {/* ✅ Countdown — aman dari hydration mismatch */}
             <div className="mt-10">
-              {isEventPassed ? (
+              {!mounted ? (
+                /* Skeleton placeholder saat belum mount — server & client identik */
+                <div className="mx-auto flex max-w-lg items-start justify-center gap-2.5 sm:gap-5">
+                  {['Hari', 'Jam', 'Menit', 'Detik'].map((label) => (
+                    <div key={label} className="flex flex-col items-center gap-1.5">
+                      <div className="flex h-20 w-20 animate-pulse items-center justify-center rounded-2xl bg-slate-800 sm:h-24 sm:w-24 lg:h-28 lg:w-28" />
+                      <span className="text-[10px] font-medium tracking-wider text-slate-600 uppercase sm:text-xs">
+                        {label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ) : eventPassed ? (
                 <p className="text-lg font-semibold text-amber-400">
                   🎉 Acara sudah dimulai! Lihat info di bawah ya.
                 </p>
               ) : (
-                <div className="mx-auto flex max-w-lg items-start justify-center gap-4 sm:gap-5">
+                <div className="mx-auto flex max-w-lg items-start justify-center gap-2.5 sm:gap-5">
                   <CountdownBlock value={padZero(timeLeft.days)} label="Hari" />
-                  <span className="mt-10 text-2xl font-bold text-slate-600 sm:mt-12">:</span>
+                  <span className="mt-8 text-xl font-bold text-slate-600 sm:mt-12 sm:text-2xl">:</span>
                   <CountdownBlock value={padZero(timeLeft.hours)} label="Jam" />
-                  <span className="mt-10 text-2xl font-bold text-slate-600 sm:mt-12">:</span>
+                  <span className="mt-8 text-xl font-bold text-slate-600 sm:mt-12 sm:text-2xl">:</span>
                   <CountdownBlock value={padZero(timeLeft.minutes)} label="Menit" />
-                  <span className="mt-10 text-2xl font-bold text-slate-600 sm:mt-12">:</span>
+                  <span className="mt-8 text-xl font-bold text-slate-600 sm:mt-12 sm:text-2xl">:</span>
                   <CountdownBlock value={padZero(timeLeft.seconds)} label="Detik" />
                 </div>
               )}
@@ -302,7 +325,7 @@ export default function MeetupMabaPage() {
             <div className="mt-12 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <button
                 onClick={() => scrollTo('benefit')}
-                className="group flex items-center gap-2 rounded-xl bg-amber-400 px-7 py-3.5 text-sm font-bold text-slate-900 shadow-lg shadow-amber-400/25 transition-all hover:bg-amber-500 hover:shadow-xl hover:shadow-amber-400/30 active:scale-[0.97]"
+                className="group flex w-full items-center justify-center gap-2 rounded-xl bg-amber-400 px-7 py-3.5 text-sm font-bold text-slate-900 shadow-lg shadow-amber-400/25 transition-all hover:bg-amber-500 hover:shadow-xl hover:shadow-amber-400/30 active:scale-[0.97] sm:w-auto"
               >
                 Daftar Sekarang
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -383,7 +406,7 @@ export default function MeetupMabaPage() {
               </p>
 
               <div className="flex flex-col gap-3">
-                {/* ✅ WhatsApp 1 — Grup Info */}
+                {/* WhatsApp 1 — Grup Info */}
                 <a
                   href="https://chat.whatsapp.com/DummyLinkGrupMabaUNIKOM"
                   target="_blank"
@@ -404,7 +427,7 @@ export default function MeetupMabaPage() {
                   <ExternalLink className="h-4 w-4 text-slate-400 transition-colors group-hover:text-green-600" />
                 </a>
 
-                {/* ✅ WhatsApp 2 — Nomor CP Panitia */}
+                {/* WhatsApp 2 — Nomor CP Panitia */}
                 <a
                   href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%20UNIKOM%202026"
                   target="_blank"
@@ -570,7 +593,6 @@ export default function MeetupMabaPage() {
               🎓✨
             </p>
 
-            {/* ✅ Footer ikon — 2 WhatsApp */}
             <div className="flex items-center gap-4">
               <a
                 href="https://chat.whatsapp.com/DummyLinkGrupMabaUNIKOM"
