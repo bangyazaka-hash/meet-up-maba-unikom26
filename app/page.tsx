@@ -187,7 +187,7 @@ export default function MeetupMabaPage() {
   return (
     <div className={`${dmSans.variable} min-h-screen font-sans bg-slate-50 text-slate-900 antialiased`}>
       {/* ============================================================ */}
-      {/*  NAVBAR — gelap, dengan hamburger menu di mobile              */}
+      {/*  NAVBAR                                                       */}
       {/* ============================================================ */}
       <nav className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-lg">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
@@ -199,7 +199,6 @@ export default function MeetupMabaPage() {
             Camaba
           </button>
 
-          {/* Desktop links */}
           <div className="hidden items-center gap-6 md:flex">
             {[
               { label: 'Info Acara', id: 'info' },
@@ -222,21 +221,15 @@ export default function MeetupMabaPage() {
             </button>
           </div>
 
-          {/* ✅ Hamburger icon — tiga garis (Menu), hanya muncul di mobile */}
           <button
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             className="rounded-lg p-2 text-slate-300 transition-colors hover:bg-white/10 hover:text-white md:hidden"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
-        {/* ✅ Mobile dropdown — background gelap menyatu navbar */}
         {mobileMenuOpen && (
           <div className="border-t border-white/10 bg-slate-900/95 px-4 pb-4 pt-2 md:hidden">
             {[
@@ -274,13 +267,11 @@ export default function MeetupMabaPage() {
 
         <div className="relative mx-auto flex h-[calc(100dvh-52px)] min-h-[520px] max-w-6xl flex-col items-center justify-center px-4 sm:px-6 sm:min-h-[600px] lg:min-h-0">
           <div className="w-full text-center">
-            {/* Badge */}
             <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1.5 text-[11px] font-semibold tracking-wide text-amber-300 uppercase animate-[heroFadeIn_0.6s_ease-out_both]">
               <Sparkles className="h-3 w-3" />
               Event Eksklusif Mahasiswa Baru
             </span>
 
-            {/* Heading */}
             <h1
               className="mt-4 text-[1.65rem] font-extrabold leading-tight tracking-tight text-white sm:mt-6 sm:text-5xl lg:text-6xl animate-[heroSlideUp_0.7s_ease-out_0.1s_both]"
               style={{ fontFamily: 'var(--font-dm-sans)' }}
@@ -292,7 +283,6 @@ export default function MeetupMabaPage() {
               <br />UNIKOM 2026
             </h1>
 
-            {/* ✅ Keterangan di atas countdown */}
             <p
               className="mx-auto mt-3 max-w-sm text-[13px] leading-relaxed text-slate-400 sm:mt-4 sm:max-w-md sm:text-sm animate-[heroSlideUp_0.7s_ease-out_0.18s_both]"
             >
@@ -300,7 +290,6 @@ export default function MeetupMabaPage() {
               insight dari senior, dan mulai perjalanan kampus-mu dengan seru.
             </p>
 
-            {/* Countdown */}
             <div className="mt-5 sm:mt-8 animate-[heroSlideUp_0.7s_ease-out_0.25s_both]">
               {!mounted ? (
                 <div className="mx-auto flex max-w-xs items-start justify-center gap-2.5 sm:max-w-lg sm:gap-5">
@@ -327,8 +316,7 @@ export default function MeetupMabaPage() {
               )}
             </div>
 
-            {/* CTA */}
-            <div className="mt-6 flex justify-center sm:mt-10 animate-[heroSlideUp_0.7s_ease-out_0.4s_both]">
+            <div className="mt-6 flex justify-center   sm:mt-10 animate-[heroSlideUp_0.7s_ease-out_0.4s_both]">
               <button
                 onClick={() => scrollTo('benefit')}
                 className="group flex w-full items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-slate-900 shadow-lg shadow-amber-400/25 transition-all hover:bg-amber-500 hover:shadow-xl hover:shadow-amber-400/30 active:scale-[0.97] sm:w-auto sm:px-7 sm:py-3.5"
@@ -352,7 +340,6 @@ export default function MeetupMabaPage() {
           />
 
           <div className="grid gap-6 lg:grid-cols-2">
-            {/* Card — Detail Acara */}
             <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8">
               <h3 className="mb-5 text-lg font-bold text-slate-900">Detail Acara</h3>
               <div className="flex flex-col gap-3">
@@ -366,7 +353,7 @@ export default function MeetupMabaPage() {
                 />
                 <InfoChip
                   icon={<MapPin className="h-5 w-5" />}
-                  label="Coffe Randa, Kota Bandung"
+                  label="Cafe Randa, Kota Bandung"
                 />
               </div>
 
@@ -378,7 +365,6 @@ export default function MeetupMabaPage() {
                 </p>
               </div>
 
-              {/* Larangan */}
               <div className="mt-4 rounded-xl border border-red-200 bg-red-50 p-4">
                 <div className="mb-2 flex items-center gap-2">
                   <AlertTriangle className="h-4.5 w-4.5 shrink-0 text-red-500" />
@@ -395,7 +381,6 @@ export default function MeetupMabaPage() {
               </div>
             </div>
 
-            {/* Card — Saluran Komunikasi */}
             <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8">
               <h3 className="mb-5 text-lg font-bold text-slate-900">
                 Saluran Komunikasi
@@ -462,21 +447,25 @@ export default function MeetupMabaPage() {
           />
 
           <div className="mx-auto grid max-w-3xl gap-6 lg:grid-cols-5">
+            {/* ✅ Price Card — Rp.60.000 rata kiri di mobile */}
             <div className="lg:col-span-2">
-              <div className="relative h-full overflow-hidden rounded-2xl bg-slate-900 p-6 text-white shadow-xl sm:p-8">
+              <div className="relative h-full overflow-hidden rounded-2xl bg-slate-900 p-6 text-left text-white shadow-xl sm:p-8">
                 <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-amber-400/15 blur-2xl" />
 
                 <p className="text-xs font-semibold tracking-widest text-slate-400 uppercase">
                   Biaya Pendaftaran
                 </p>
-                <div className="mt-3 flex justify-center items-baseline gap-1">
-                  <span className="text-4xl flex font-extrabold text-amber-400 sm:text-5xl">
+                <div className="mt-3">
+                  <span
+                    className="text-4xl font-extrabold text-amber-400 sm:text-5xl"
+                    style={{ fontFamily: 'var(--font-dm-sans)' }}
+                  >
                     Rp.60.000
                   </span>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                  Biaya pendaftaran Rp.60.000 untuk seluruh mahasiswa baru UNIKOM
-                  angkatan 2026.
+                  Biaya pendaftaran untuk seluruh mahasiswa baru
+                  UNIKOM angkatan 2026.
                 </p>
 
                 <button
@@ -495,7 +484,7 @@ export default function MeetupMabaPage() {
                   Daftar via WhatsApp
                 </button>
 
-                <p className="mt-3 text-center text-[11px] text-slate-500">
+                <p className="mt-3 text-left text-[11px] text-slate-500">
                   Kuota terbatas — 200 peserta
                 </p>
               </div>
@@ -614,8 +603,8 @@ export default function MeetupMabaPage() {
 
             <div className="mt-2 w-full border-t border-slate-100 pt-6">
               <p className="text-xs text-slate-400">
-                &copy; {new Date().getFullYear()} Meetup Maba UNIKOM. Thanks From{' '}
-                <span className="text-red-400">Yazaka</span> For Supporting The Website.
+                &copy; {new Date().getFullYear()} Meetup Maba UNIKOM. Made with{' '}
+                <span className="text-red-400">♥</span> for freshers.
               </p>
             </div>
           </div>
@@ -623,7 +612,7 @@ export default function MeetupMabaPage() {
       </footer>
 
       {/* ============================================================ */}
-      {/*  ANIMASI — GPU-only                                           */}
+      {/*  ANIMASI                                                      */}
       {/* ============================================================ */}
       <style jsx>{`
         @keyframes heroFadeIn {
