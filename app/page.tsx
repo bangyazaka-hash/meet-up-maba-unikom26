@@ -65,27 +65,27 @@ const BENEFITS: BenefitItem[] = [
 
 const GALLERY_IMAGES = [
   {
-    src: '/place4.jpg',
+    src: '/place4.JPG',
     alt: 'Interior venue meetup modern',
   },
   {
-    src: '/place7.jpg',
+    src: '/place7.JPG',
     alt: 'Suasana diskusi mahasiswa',
   },
   {
-    src: '/place3.jpg',
+    src: '/place3.JPG',
     alt: 'Area café yang cozy',
   },
   {
-    src: '/place8.jpg',
+    src: '/place8.JPG',
     alt: 'Ruang acara dengan pencahayaan hangat',
   },
   {
-    src: '/place2.jpg',
+    src: '/place2.JPG',
     alt: 'Suasana workshop kolaboratif',
   },
   {
-    src: '/place6.jpg',
+    src: '/place6.JPG',
     alt: 'Momen foto bersama peserta',
   },
 ];
