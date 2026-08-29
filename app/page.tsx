@@ -65,27 +65,27 @@ const BENEFITS: BenefitItem[] = [
 
 const GALLERY_IMAGES = [
   {
-    src: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&h=400&fit=crop',
+    src: '/place4.jpg',
     alt: 'Interior venue meetup modern',
   },
   {
-    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop',
+    src: '/place7.jpg',
     alt: 'Suasana diskusi mahasiswa',
   },
   {
-    src: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&h=400&fit=crop',
+    src: '/place3.jpg',
     alt: 'Area café yang cozy',
   },
   {
-    src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop',
+    src: '/place8.jpg',
     alt: 'Ruang acara dengan pencahayaan hangat',
   },
   {
-    src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop',
+    src: '/place2.jpg',
     alt: 'Suasana workshop kolaboratif',
   },
   {
-    src: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&h=400&fit=crop',
+    src: '/place6.jpg',
     alt: 'Momen foto bersama peserta',
   },
 ];
@@ -187,16 +187,27 @@ export default function MeetupMabaPage() {
   return (
     <div className={`${dmSans.variable} min-h-screen font-sans bg-slate-50 text-slate-900 antialiased`}>
       {/* ============================================================ */}
-      {/*  NAVBAR                                                       */}
+      {/*  NAVBAR — ✅ logo ditambahkan                                 */}
       {/* ============================================================ */}
       <nav className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-lg">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+          {/* ✅ Logo + teks berdampingan */}
           <button
             onClick={() => scrollTo('hero')}
-            className="text-lg font-extrabold tracking-tight text-white"
-            style={{ fontFamily: 'var(--font-dm-sans)' }}
+            className="flex items-center gap-2.5"
           >
-            Camaba
+            {/* ✅ Ganti "logo.png" dengan nama file logo-mu di folder public */}
+            <img
+              src="/logo2.png"
+              alt="Logo TwentySix"
+              className="h-8 w-8 object-contain sm:h-9 sm:w-9"
+            />
+            <span
+              className="bg-gradient-to-r from-amber-400 to-[#92EEFF] bg-clip-text text-transparent text-lg font-extrabold tracking-tight"
+              style={{ fontFamily: 'var(--font-dm-sans)' }}
+            >
+              TwentySix
+            </span>
           </button>
 
           <div className="hidden items-center gap-6 md:flex">
@@ -316,7 +327,7 @@ export default function MeetupMabaPage() {
               )}
             </div>
 
-            <div className="mt-6 flex justify-center   sm:mt-10 animate-[heroSlideUp_0.7s_ease-out_0.4s_both]">
+            <div className="mt-6 flex justify-center sm:mt-10 animate-[heroSlideUp_0.7s_ease-out_0.4s_both]">
               <button
                 onClick={() => scrollTo('benefit')}
                 className="group flex w-full items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-slate-900 shadow-lg shadow-amber-400/25 transition-all hover:bg-amber-500 hover:shadow-xl hover:shadow-amber-400/30 active:scale-[0.97] sm:w-auto sm:px-7 sm:py-3.5"
@@ -430,6 +441,26 @@ export default function MeetupMabaPage() {
                   </div>
                   <ExternalLink className="h-4 w-4 text-slate-400 transition-colors group-hover:text-green-600" />
                 </a>
+
+                <a
+                  href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%20UNIKOM%202026"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3.5 rounded-xl border border-green-200 bg-green-50 px-4 py-3.5 transition-all hover:border-green-300 hover:shadow-md"
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-sm">
+                    <Phone className="h-5 w-5" />
+                  </span>
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-slate-900">
+                      CP Panitia 2 (WhatsApp)
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      +62 812-3456-7890
+                    </p>
+                  </div>
+                  <ExternalLink className="h-4 w-4 text-slate-400 transition-colors group-hover:text-green-600" />
+                </a>
               </div>
             </div>
           </div>
@@ -447,7 +478,6 @@ export default function MeetupMabaPage() {
           />
 
           <div className="mx-auto grid max-w-3xl gap-6 lg:grid-cols-5">
-            {/* ✅ Price Card — Rp.60.000 rata kiri di mobile */}
             <div className="lg:col-span-2">
               <div className="relative h-full overflow-hidden rounded-2xl bg-slate-900 p-6 text-left text-white shadow-xl sm:p-8">
                 <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-amber-400/15 blur-2xl" />
@@ -485,7 +515,7 @@ export default function MeetupMabaPage() {
                 </button>
 
                 <p className="mt-3 text-left text-[11px] text-slate-500">
-                  Kuota terbatas — 200 peserta
+                  Kuota tak terbatas, daftarlah secepatnya agar tidak melewatkan event terbatas ini.
                 </p>
               </div>
             </div>
@@ -562,17 +592,27 @@ export default function MeetupMabaPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  FOOTER                                                       */}
+      {/*  FOOTER — ✅ logo juga ditambahkan di footer                  */}
       {/* ============================================================ */}
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
           <div className="flex flex-col items-center gap-4 text-center">
-            <span
-              className="text-lg font-extrabold tracking-tight text-slate-900"
-              style={{ fontFamily: 'var(--font-dm-sans)' }}
+            <button
+              onClick={() => scrollTo('hero')}
+              className="flex items-center gap-2.5"
             >
-              Camaba
-            </span>
+              <img
+                src="/logo2.png"
+                alt="Logo TwentySix"
+                className="h-8 w-8 object-contain"
+              />
+              <span
+                className="bg-gradient-to-r from-amber-400 to-[#92EEFF] bg-clip-text text-transparent text-lg font-extrabold tracking-tight "
+                style={{ fontFamily: 'var(--font-dm-sans)' }}
+              >
+                TwentySix
+              </span>
+            </button>
 
             <p className="max-w-md text-sm leading-relaxed text-slate-500">
               Selamat datang di keluarga besar Universitas Komputer Indonesia! Semoga
