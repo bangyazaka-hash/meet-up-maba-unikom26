@@ -65,11 +65,11 @@ const BENEFITS: BenefitItem[] = [
 
 const GALLERY_IMAGES = [
   {
-    src: '/place4.JPG',
+    src: '/place7.JPG',
     alt: 'Interior venue meetup modern',
   },
   {
-    src: '/place7.JPG',
+    src: '/place4.JPG',
     alt: 'Suasana diskusi mahasiswa',
   },
   {
