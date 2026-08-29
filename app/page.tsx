@@ -66,19 +66,19 @@ const BENEFITS: BenefitItem[] = [
 const GALLERY_IMAGES = [
   {
     src: '/place7.JPG',
-    alt: 'Interior venue meetup modern',
+    alt: 'Atap yang artistik dengan pencahayaan hangat',
   },
   {
     src: '/place4.JPG',
-    alt: 'Suasana diskusi mahasiswa',
+    alt: 'Area indoor dengan dekorasi cozy',
   },
   {
     src: '/place3.JPG',
-    alt: 'Area café yang cozy',
+    alt: 'Area berkumpul dengan meja dan kursi nyaman',
   },
   {
     src: '/place8.JPG',
-    alt: 'Ruang acara dengan pencahayaan hangat',
+    alt: 'Ruang live music dengan pencahayaan artistik',
   },
   {
     src: '/place2.JPG',
@@ -86,7 +86,7 @@ const GALLERY_IMAGES = [
   },
   {
     src: '/place6.JPG',
-    alt: 'Momen foto bersama peserta',
+    alt: 'Area depan dengan pencahayaan modern',
   },
 ];
 
