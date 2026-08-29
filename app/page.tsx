@@ -199,14 +199,14 @@ export default function MeetupMabaPage() {
             {/* ✅ Ganti "logo.png" dengan nama file logo-mu di folder public */}
             <img
               src="/logo2.png"
-              alt="Logo TwentySix"
+              alt="Logo TwenSix"
               className="h-8 w-8 object-contain sm:h-9 sm:w-9"
             />
             <span
               className="bg-gradient-to-r from-amber-400 to-[#92EEFF] bg-clip-text text-transparent text-lg font-extrabold tracking-tight"
               style={{ fontFamily: 'var(--font-dm-sans)' }}
             >
-              TwentySix
+              TwenSix
             </span>
           </button>
 
@@ -603,14 +603,14 @@ export default function MeetupMabaPage() {
             >
               <img
                 src="/logo2.png"
-                alt="Logo TwentySix"
+                alt="Logo TwenSix"
                 className="h-8 w-8 object-contain"
               />
               <span
                 className="bg-gradient-to-r from-amber-400 to-[#92EEFF] bg-clip-text text-transparent text-lg font-extrabold tracking-tight "
                 style={{ fontFamily: 'var(--font-dm-sans)' }}
               >
-                TwentySix
+                TwenSix
               </span>
             </button>
 
