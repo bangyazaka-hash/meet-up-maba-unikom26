@@ -581,7 +581,7 @@ export default function MeetupMabaPage() {
             <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-slate-100 bg-slate-900 shadow-md">
               <iframe
                 className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/nofSUsRRgQw?rel=0&modestbranding=1"
+                src="https://www.youtube.com/embed/7a3Si0SU3fw?rel=0&modestbranding=1"
                 title="Video Venue Meetup Maba UNIKOM"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
