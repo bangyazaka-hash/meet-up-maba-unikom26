@@ -56,7 +56,7 @@ const EVENT_DATE = new Date('2026-09-08T13:30:00+07:00');
 const INITIAL_TIME: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
 const BENEFITS: BenefitItem[] = [
-  { icon: <Users className="h-5 w-5" />, text: 'Relasi antar jurusan se-UNIKOM' },
+  { icon: <Users className="  qh-5 w-5" />, text: 'Relasi antar jurusan se-UNIKOM' }, 
   { icon: <Sparkles className="h-5 w-5" />, text: 'Sharing session bareng senior berpengalaman' },
   { icon: <Coffee className="h-5 w-5" />, text: 'Snack & Drink gratis untuk peserta' },
   { icon: <Award className="h-5 w-5" />, text: 'E-Certificate resmi kepanitiaan' },
@@ -287,19 +287,28 @@ export default function MeetupMabaPage() {
               className="mt-4 text-[1.65rem] font-extrabold leading-tight tracking-tight text-white sm:mt-6 sm:text-5xl lg:text-6xl animate-[heroSlideUp_0.7s_ease-out_0.1s_both]"
               style={{ fontFamily: 'var(--font-dm-sans)' }}
             >
-              Join{' '}
+              First{' '}
               <span className="bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent">
-                Meetup Maba
+                Meet Maba
               </span>
-              <br />UNIKOM 2026
+              <br /> 2026
             </h1>
 
+            <h2 className="bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent text-lg sm:text-xl lg:text-2xl font-bold tracking-wide">
+            <span>Your First Step,
+              </span>
+            <br /> Your New Story.
+            </h2>
             <p
               className="mx-auto mt-3 max-w-sm text-[13px] leading-relaxed text-slate-400 sm:mt-4 sm:max-w-md sm:text-sm animate-[heroSlideUp_0.7s_ease-out_0.18s_both]"
             >
-              Temui teman-teman baru dari berbagai jurusan, dapatkan
-              insight dari senior, dan mulai perjalanan kampus-mu dengan seru.
+             Kenali kampusmu, temukan teman baru dari berbagai jurusan & mulai perjalanan baru sebagai
+             calon mahasiswa/i baru UNIKOM.
             </p>
+
+            <h2 className="bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-[0.2em] uppercase mt-2 sm:mt-4">
+            EVENT STARTS IN 
+            </h2>
 
             <div className="mt-5 sm:mt-8 animate-[heroSlideUp_0.7s_ease-out_0.25s_both]">
               {!mounted ? (
@@ -332,7 +341,7 @@ export default function MeetupMabaPage() {
                 onClick={() => scrollTo('benefit')}
                 className="group flex w-full items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-slate-900 shadow-lg shadow-amber-400/25 transition-all hover:bg-amber-500 hover:shadow-xl hover:shadow-amber-400/30 active:scale-[0.97] sm:w-auto sm:px-7 sm:py-3.5"
               >
-                Daftar Sekarang
+                Aku Siap Bergabung
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </button>
             </div>
@@ -346,8 +355,8 @@ export default function MeetupMabaPage() {
       <section id="info" className="scroll-mt-16 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
-            title="Informasi Acara"
-            subtitle="Simpan tanggalnya dan jangan sampai terlewat!"
+            title="Save The Date"
+            subtitle="Catat tanggalnya & jangan sampai ketinggalan momen pertama bersama camaba lainnya!"
           />
 
           <div className="grid gap-6 lg:grid-cols-2">
@@ -394,11 +403,10 @@ export default function MeetupMabaPage() {
 
             <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8">
               <h3 className="mb-5 text-lg font-bold text-slate-900">
-                Saluran Komunikasi
+                Stay Connected
               </h3>
               <p className="mb-5 text-sm leading-relaxed text-slate-500">
-                Gabung dulu di saluran resmi biar nggak ketinggalan info terbaru, update
-                jadwal, dan kenalan dengan teman-teman maba lainnya.
+               Gabung di grup resmi untuk update terbaru & kenalan dengan teman-teman camaba lainnya
               </p>
 
               <div className="flex flex-col gap-3">
@@ -473,8 +481,7 @@ export default function MeetupMabaPage() {
       <section id="benefit" className="scroll-mt-16 bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
-            title="Biaya & Benefit"
-            subtitle="Semua kebaikan ini cuma buat kamu yang daftar."
+            title="Join With Only"
           />
 
           <div className="mx-auto grid max-w-3xl gap-6 lg:grid-cols-5">
@@ -482,9 +489,7 @@ export default function MeetupMabaPage() {
               <div className="relative h-full overflow-hidden rounded-2xl bg-slate-900 p-6 text-left text-white shadow-xl sm:p-8">
                 <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-amber-400/15 blur-2xl" />
 
-                <p className="text-xs font-semibold tracking-widest text-slate-400 uppercase">
-                  Biaya Pendaftaran
-                </p>
+                
                 <div className="mt-3">
                   <span
                     className="text-4xl font-extrabold text-amber-400 sm:text-5xl"
@@ -549,7 +554,7 @@ export default function MeetupMabaPage() {
       <section id="galeri" className="scroll-mt-16 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
-            title="Galeri Tempat Meetup"
+            title="Meetup Venue Gallery" 
             subtitle="Sneak peek suasana venue yang bakal jadi lokasi acara kita."
           />
 
