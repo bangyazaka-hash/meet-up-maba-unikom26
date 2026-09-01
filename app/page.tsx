@@ -63,7 +63,7 @@ const BENEFITS: BenefitItem[] = [
   { icon: <Coffee className="h-5 w-5" />, text: 'Makan & Minum pilihan untuk peserta' },
   { icon: <Video className="h-5 w-5" />, text: 'Photobooth dengan para pendatang' },
   { icon: <Gamepad2Icon className="h-5 w-5" />, text: 'Bermain game dengan teman-teman maba' },
-  { icon: <Music2Icon className="h-5 w-5" />, text: 'Nikmati live musik & Dj yang akan datang' },
+  { icon: <Music2Icon className="h-5 w-5" />, text: 'Nikmati live Musik & DJ yang akan datang' },
   { icon: <Gift className="h-5 w-5" />, text: 'Doorprize menarik & merchandise eksklusif' },
 ];
 
@@ -532,7 +532,7 @@ export default function MeetupMabaPage() {
             <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-slate-100 bg-slate-900 shadow-md">
               <iframe
                 className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/7a3Si0SU3fw?rel=0&modestbranding=1"
+                src="https://www.youtube.com/embed/qxopeJ9n43k?rel=0&modestbranding=1"
                 title="Video Venue Meetup Maba"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
