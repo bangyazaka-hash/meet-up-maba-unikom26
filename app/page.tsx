@@ -423,7 +423,7 @@ export default function MeetupMabaPage() {
                   </span>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-slate-900">
-                      Faiq (FTIK)
+                      Faiq (Layanan Informasi)
                     </p>
                     <p className="text-xs text-slate-500">
                       +62 851-3631-9699
