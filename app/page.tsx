@@ -351,11 +351,11 @@ export default function MeetupMabaPage() {
                 />
                 <InfoChip
                   icon={<Clock className="h-5 w-5" />}
-                  label="13.00 WIB – Selesai"
+                  label="13.00 WIB – 20.00 WIB"
                 />
                 <InfoChip
                   icon={<MapPin className="h-5 w-5" />}
-                  label="Cafe Randa, Kota Bandung"
+                  label="Jl Jurang 94 40161 Pasteur Bandung Jawa Barat"
                 />
               </div>
 
