@@ -56,7 +56,7 @@ const EVENT_DATE = new Date('2026-09-08T13:30:00+07:00');
 const INITIAL_TIME: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
 const BENEFITS: BenefitItem[] = [
-  { icon: <Users className="  qh-5 w-5" />, text: 'Relasi antar jurusan se-UNIKOM' }, 
+  { icon: <Users className="h-5 w-5" />, text: 'Relasi antar jurusan se-kampus' },
   { icon: <Sparkles className="h-5 w-5" />, text: 'Sharing session bareng senior berpengalaman' },
   { icon: <Coffee className="h-5 w-5" />, text: 'Snack & Drink gratis untuk peserta' },
   { icon: <Award className="h-5 w-5" />, text: 'E-Certificate resmi kepanitiaan' },
@@ -64,30 +64,12 @@ const BENEFITS: BenefitItem[] = [
 ];
 
 const GALLERY_IMAGES = [
-  {
-    src: '/place7.JPG',
-    alt: 'Atap yang artistik dengan pencahayaan hangat',
-  },
-  {
-    src: '/place4.JPG',
-    alt: 'Area indoor dengan dekorasi cozy',
-  },
-  {
-    src: '/place3.JPG',
-    alt: 'Area berkumpul dengan meja dan kursi nyaman',
-  },
-  {
-    src: '/place8.JPG',
-    alt: 'Ruang live music dengan pencahayaan artistik',
-  },
-  {
-    src: '/place2.JPG',
-    alt: 'Suasana workshop kolaboratif',
-  },
-  {
-    src: '/place6.JPG',
-    alt: 'Area depan dengan pencahayaan modern',
-  },
+  { src: '/place7.PNG', alt: 'Atap yang artistik dengan pencahayaan hangat' },
+  { src: '/place4.PNG', alt: 'Area indoor dengan dekorasi cozy' },
+  { src: '/place3.PNG', alt: 'Area berkumpul dengan meja dan kursi nyaman' },
+  { src: '/place8.PNG', alt: 'Ruang live music dengan pencahayaan artistik' },
+  { src: '/place2.PNG', alt: 'Suasana workshop kolaboratif' },
+  { src: '/place6.PNG', alt: 'Area depan dengan pencahayaan modern' },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -187,16 +169,14 @@ export default function MeetupMabaPage() {
   return (
     <div className={`${dmSans.variable} min-h-screen font-sans bg-slate-50 text-slate-900 antialiased`}>
       {/* ============================================================ */}
-      {/*  NAVBAR — ✅ logo ditambahkan                                 */}
+      {/*  NAVBAR                                                       */}
       {/* ============================================================ */}
       <nav className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-lg">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-          {/* ✅ Logo + teks berdampingan */}
           <button
             onClick={() => scrollTo('hero')}
             className="flex items-center gap-2.5"
           >
-            {/* ✅ Ganti "logo.png" dengan nama file logo-mu di folder public */}
             <img
               src="/logo2.png"
               alt="Logo TwenSix"
@@ -267,50 +247,55 @@ export default function MeetupMabaPage() {
       </nav>
 
       {/* ============================================================ */}
-      {/*  HERO                                                         */}
+      {/*  HERO — ✅ layout dirapikan                                   */}
       {/* ============================================================ */}
       <section
         id="hero"
         className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800"
       >
+        {/* Ambient glow */}
         <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
         <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-amber-400/10 blur-3xl" />
 
-        <div className="relative mx-auto flex h-[calc(100dvh-52px)] min-h-[520px] max-w-6xl flex-col items-center justify-center px-4 sm:px-6 sm:min-h-[600px] lg:min-h-0">
-          <div className="w-full text-center">
+        <div className="relative mx-auto flex min-h-[calc(100dvh-52px)] max-w-6xl flex-col items-center justify-center px-4 py-16 sm:px-6 sm:py-20">
+          <div className="w-full max-w-2xl text-center">
+
+            {/* --- Badge --- */}
             <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1.5 text-[11px] font-semibold tracking-wide text-amber-300 uppercase animate-[heroFadeIn_0.6s_ease-out_both]">
               <Sparkles className="h-3 w-3" />
               Event Eksklusif Mahasiswa Baru
             </span>
 
+            {/* --- Main Heading --- */}
             <h1
-              className="mt-4 text-[1.65rem] font-extrabold leading-tight tracking-tight text-white sm:mt-6 sm:text-5xl lg:text-6xl animate-[heroSlideUp_0.7s_ease-out_0.1s_both]"
+              className="mt-6 text-[1.75rem] font-extrabold leading-[1.15] tracking-tight text-white sm:mt-8 sm:text-5xl lg:text-6xl animate-[heroSlideUp_0.7s_ease-out_0.1s_both]"
               style={{ fontFamily: 'var(--font-dm-sans)' }}
             >
               First{' '}
               <span className="bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent">
                 Meet Maba
-              </span>
-              <br /> 2026
+              </span>{' '}
+              2026
             </h1>
 
-            <h2 className="bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent text-lg sm:text-xl lg:text-2xl font-bold tracking-wide">
-            <span>Your First Step,
-              </span>
-            <br /> Your New Story.
-            </h2>
-            <p
-              className="mx-auto mt-3 max-w-sm text-[13px] leading-relaxed text-slate-400 sm:mt-4 sm:max-w-md sm:text-sm animate-[heroSlideUp_0.7s_ease-out_0.18s_both]"
-            >
-             Kenali kampusmu, temukan teman baru dari berbagai jurusan & mulai perjalanan baru sebagai
-             calon mahasiswa/i baru UNIKOM.
+            {/* --- Tagline (bukan heading, hanya dekoratif) --- */}
+            <p className="mt-3 text-lg font-bold leading-snug tracking-wide text-white sm:mt-4 sm:text-xl lg:text-2xl whitespace-nowrap animate-[heroSlideUp_0.7s_ease-out_0.15s_both]">
+  Your First Step, <span className="text-amber-400/90">Your New Story.</span>
+</p>
+
+            {/* --- Deskripsi --- */}
+            <p className="mx-auto mt-4 max-w-md text-[13px] leading-relaxed text-slate-400 sm:mt-5 sm:text-sm animate-[heroSlideUp_0.7s_ease-out_0.2s_both]">
+              Kenali kampusmu, temukan teman baru dari berbagai jurusan & mulai
+              perjalanan baru sebagai calon mahasiswa/i baru.
             </p>
 
-            <h2 className="bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-[0.2em] uppercase mt-2 sm:mt-4">
-            EVENT STARTS IN 
-            </h2>
+            {/* --- Countdown Label --- */}
+            <p className="mt-10 text-[10px] font-bold tracking-[0.25em] text-slate-500 uppercase sm:mt-12 sm:text-xs animate-[heroSlideUp_0.7s_ease-out_0.25s_both]">
+              Event starts in
+            </p>
 
-            <div className="mt-5 sm:mt-8 animate-[heroSlideUp_0.7s_ease-out_0.25s_both]">
+            {/* --- Countdown --- */}
+            <div className="mt-4 animate-[heroSlideUp_0.7s_ease-out_0.3s_both]">
               {!mounted ? (
                 <div className="mx-auto flex max-w-xs items-start justify-center gap-2.5 sm:max-w-lg sm:gap-5">
                   {['Hari', 'Jam', 'Menit', 'Detik'].map((label) => (
@@ -336,10 +321,11 @@ export default function MeetupMabaPage() {
               )}
             </div>
 
-            <div className="mt-6 flex justify-center sm:mt-10 animate-[heroSlideUp_0.7s_ease-out_0.4s_both]">
+            {/* --- CTA Button --- */}
+            <div className="mt-8 sm:mt-10 animate-[heroSlideUp_0.7s_ease-out_0.4s_both]">
               <button
                 onClick={() => scrollTo('benefit')}
-                className="group flex w-full items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-slate-900 shadow-lg shadow-amber-400/25 transition-all hover:bg-amber-500 hover:shadow-xl hover:shadow-amber-400/30 active:scale-[0.97] sm:w-auto sm:px-7 sm:py-3.5"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-amber-400 px-8 py-3.5 text-sm font-bold text-slate-900 shadow-lg shadow-amber-400/25 transition-all hover:bg-amber-500 hover:shadow-xl hover:shadow-amber-400/30 active:scale-[0.97] sm:px-10 sm:py-4 sm:text-base"
               >
                 Aku Siap Bergabung
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -406,12 +392,12 @@ export default function MeetupMabaPage() {
                 Stay Connected
               </h3>
               <p className="mb-5 text-sm leading-relaxed text-slate-500">
-               Gabung di grup resmi untuk update terbaru & kenalan dengan teman-teman camaba lainnya
+                Gabung di grup resmi untuk update terbaru & kenalan dengan teman-teman camaba lainnya
               </p>
 
               <div className="flex flex-col gap-3">
                 <a
-                  href="https://chat.whatsapp.com/DummyLinkGrupMabaUNIKOM"
+                  href="https://whatsapp.com/channel/0029Vb8aHdl0VycIdbMdCw3e"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3.5 rounded-xl border border-green-200 bg-green-50 px-4 py-3.5 transition-all hover:border-green-300 hover:shadow-md"
@@ -424,14 +410,14 @@ export default function MeetupMabaPage() {
                       Grup WhatsApp Info Utama
                     </p>
                     <p className="text-xs text-slate-500">
-                      1.200+ maba sudah gabung
+                      200+ maba sudah gabung
                     </p>
                   </div>
                   <ExternalLink className="h-4 w-4 text-slate-400 transition-colors group-hover:text-green-600" />
                 </a>
 
                 <a
-                  href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%20UNIKOM%202026"
+                  href="https://wa.me/62882002258354?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%202026"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3.5 rounded-xl border border-green-200 bg-green-50 px-4 py-3.5 transition-all hover:border-green-300 hover:shadow-md"
@@ -441,17 +427,17 @@ export default function MeetupMabaPage() {
                   </span>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-slate-900">
-                      CP Panitia (WhatsApp)
+                      Chealsea (FTIK)
                     </p>
                     <p className="text-xs text-slate-500">
-                      +62 812-3456-7890
+                      +62 882-0022-58354
                     </p>
                   </div>
                   <ExternalLink className="h-4 w-4 text-slate-400 transition-colors group-hover:text-green-600" />
                 </a>
 
                 <a
-                  href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%20UNIKOM%202026"
+                  href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%202026"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3.5 rounded-xl border border-green-200 bg-green-50 px-4 py-3.5 transition-all hover:border-green-300 hover:shadow-md"
@@ -480,16 +466,13 @@ export default function MeetupMabaPage() {
       {/* ============================================================ */}
       <section id="benefit" className="scroll-mt-16 bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <SectionHeading
-            title="Join With Only"
-          />
+          <SectionHeading title="Join With Only" />
 
           <div className="mx-auto grid max-w-3xl gap-6 lg:grid-cols-5">
             <div className="lg:col-span-2">
               <div className="relative h-full overflow-hidden rounded-2xl bg-slate-900 p-6 text-left text-white shadow-xl sm:p-8">
                 <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-amber-400/15 blur-2xl" />
 
-                
                 <div className="mt-3">
                   <span
                     className="text-4xl font-extrabold text-amber-400 sm:text-5xl"
@@ -500,16 +483,16 @@ export default function MeetupMabaPage() {
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-slate-400">
                   Biaya pendaftaran untuk seluruh mahasiswa baru
-                  UNIKOM angkatan 2026.
+                  angkatan 2026.
                 </p>
 
                 <button
                   onClick={() => {
                     const msg = encodeURIComponent(
-                      'Halo, saya ingin mendaftar Meetup Maba UNIKOM 2026!'
+                      'Halo, saya ingin mendaftar Meetup Maba 2026!'
                     );
                     window.open(
-                      `https://chat.whatsapp.com/DummyLinkGrupMabaUNIKOM?text=${msg}`,
+                      `https://chat.whatsapp.com/DummyLinkGrupMaba?text=${msg}`, //nanti diganti
                       '_blank'
                     );
                   }}
@@ -554,7 +537,7 @@ export default function MeetupMabaPage() {
       <section id="galeri" className="scroll-mt-16 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
-            title="Meetup Venue Gallery" 
+            title="Meetup Venue Gallery"
             subtitle="Sneak peek suasana venue yang bakal jadi lokasi acara kita."
           />
 
@@ -587,7 +570,7 @@ export default function MeetupMabaPage() {
               <iframe
                 className="absolute inset-0 h-full w-full"
                 src="https://www.youtube.com/embed/7a3Si0SU3fw?rel=0&modestbranding=1"
-                title="Video Venue Meetup Maba UNIKOM"
+                title="Video Venue Meetup Maba"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
@@ -597,7 +580,7 @@ export default function MeetupMabaPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  FOOTER — ✅ logo juga ditambahkan di footer                  */}
+      {/*  FOOTER                                                       */}
       {/* ============================================================ */}
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
@@ -612,7 +595,7 @@ export default function MeetupMabaPage() {
                 className="h-8 w-8 object-contain"
               />
               <span
-                className="bg-gradient-to-r from-amber-400 to-[#92EEFF] bg-clip-text text-transparent text-lg font-extrabold tracking-tight "
+                className="bg-gradient-to-r from-amber-400 to-[#92EEFF] bg-clip-text text-transparent text-lg font-extrabold tracking-tight"
                 style={{ fontFamily: 'var(--font-dm-sans)' }}
               >
                 TwenSix
@@ -620,14 +603,14 @@ export default function MeetupMabaPage() {
             </button>
 
             <p className="max-w-md text-sm leading-relaxed text-slate-500">
-              Selamat datang di keluarga besar Universitas Komputer Indonesia! Semoga
-              perjalanan kampus-mu penuh warna, prestasi, dan kenangan tak terlupakan.
+              Selamat datang di keluarga besar Twensix! Semoga
+              perjalanan hidup-mu penuh warna, prestasi, dan kenangan tak terlupakan.
               🎓✨
             </p>
 
             <div className="flex items-center gap-4">
               <a
-                href="https://chat.whatsapp.com/DummyLinkGrupMabaUNIKOM"
+                href="https://chat.whatsapp.com/DummyLinkGrupMaba" //nanti diganti
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition-colors hover:bg-green-50 hover:text-green-600"
@@ -648,7 +631,7 @@ export default function MeetupMabaPage() {
 
             <div className="mt-2 w-full border-t border-slate-100 pt-6">
               <p className="text-xs text-slate-400">
-                &copy; {new Date().getFullYear()} Meetup Maba UNIKOM. Made with{' '}
+                &copy; {new Date().getFullYear()} Meetup Maba. Made with{' '}
                 <span className="text-red-400">♥</span> for freshers.
               </p>
             </div>
@@ -656,9 +639,7 @@ export default function MeetupMabaPage() {
         </div>
       </footer>
 
-      {/* ============================================================ */}
-      {/*  ANIMASI                                                      */}
-      {/* ============================================================ */}
+      {/*  ANIMASI  */}
       <style jsx>{`
         @keyframes heroFadeIn {
           from { opacity: 0; }
