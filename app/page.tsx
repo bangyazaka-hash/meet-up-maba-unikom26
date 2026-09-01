@@ -18,6 +18,8 @@ import {
   AlertTriangle,
   Menu,
   X,
+  Music2Icon,
+  Gamepad2Icon,
 } from 'lucide-react';
 import { DM_Sans } from 'next/font/google';
 
@@ -52,14 +54,16 @@ interface BenefitItem {
 /*  Constants                                                          */
 /* ------------------------------------------------------------------ */
 
-const EVENT_DATE = new Date('2026-09-08T13:30:00+07:00');
+const EVENT_DATE = new Date('2026-09-08T13:00:00+07:00');
 const INITIAL_TIME: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
 const BENEFITS: BenefitItem[] = [
   { icon: <Users className="h-5 w-5" />, text: 'Relasi antar jurusan se-kampus' },
   { icon: <Sparkles className="h-5 w-5" />, text: 'Sharing session bareng senior berpengalaman' },
-  { icon: <Coffee className="h-5 w-5" />, text: 'Snack & Drink gratis untuk peserta' },
-  { icon: <Award className="h-5 w-5" />, text: 'E-Certificate resmi kepanitiaan' },
+  { icon: <Coffee className="h-5 w-5" />, text: 'Makan & Minum pilihan untuk peserta' },
+  { icon: <Video className="h-5 w-5" />, text: 'Photobooth dengan para pendatang' },
+  { icon: <Gamepad2Icon className="h-5 w-5" />, text: 'Bermain game dengan teman-teman maba' },
+  { icon: <Music2Icon className="h-5 w-5" />, text: 'Nikmati live musik & Dj yang akan datang' },
   { icon: <Gift className="h-5 w-5" />, text: 'Doorprize menarik & merchandise eksklusif' },
 ];
 
@@ -240,33 +244,30 @@ export default function MeetupMabaPage() {
               onClick={() => scrollTo('benefit')}
               className="mt-2 w-full rounded-lg bg-amber-400 px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition-all hover:bg-amber-500"
             >
-              Daftar Sekarang
+              Informasi lebih lanjut
             </button>
           </div>
         )}
       </nav>
 
       {/* ============================================================ */}
-      {/*  HERO — ✅ layout dirapikan                                   */}
+      {/*  HERO                                                         */}
       {/* ============================================================ */}
       <section
         id="hero"
         className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800"
       >
-        {/* Ambient glow */}
         <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
         <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-amber-400/10 blur-3xl" />
 
         <div className="relative mx-auto flex min-h-[calc(100dvh-52px)] max-w-6xl flex-col items-center justify-center px-4 py-16 sm:px-6 sm:py-20">
           <div className="w-full max-w-2xl text-center">
 
-            {/* --- Badge --- */}
             <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-1.5 text-[11px] font-semibold tracking-wide text-amber-300 uppercase animate-[heroFadeIn_0.6s_ease-out_both]">
               <Sparkles className="h-3 w-3" />
               Event Eksklusif Mahasiswa Baru
             </span>
 
-            {/* --- Main Heading --- */}
             <h1
               className="mt-6 text-[1.75rem] font-extrabold leading-[1.15] tracking-tight text-white sm:mt-8 sm:text-5xl lg:text-6xl animate-[heroSlideUp_0.7s_ease-out_0.1s_both]"
               style={{ fontFamily: 'var(--font-dm-sans)' }}
@@ -278,23 +279,19 @@ export default function MeetupMabaPage() {
               2026
             </h1>
 
-            {/* --- Tagline (bukan heading, hanya dekoratif) --- */}
             <p className="mt-3 text-lg font-bold leading-snug tracking-wide text-white sm:mt-4 sm:text-xl lg:text-2xl whitespace-nowrap animate-[heroSlideUp_0.7s_ease-out_0.15s_both]">
-  Your First Step, <span className="text-amber-400/90">Your New Story.</span>
-</p>
+              Your First Step, <span className="text-amber-400/90">Your New Story.</span>
+            </p>
 
-            {/* --- Deskripsi --- */}
             <p className="mx-auto mt-4 max-w-md text-[13px] leading-relaxed text-slate-400 sm:mt-5 sm:text-sm animate-[heroSlideUp_0.7s_ease-out_0.2s_both]">
               Kenali kampusmu, temukan teman baru dari berbagai jurusan & mulai
               perjalanan baru sebagai calon mahasiswa/i baru.
             </p>
 
-            {/* --- Countdown Label --- */}
             <p className="mt-10 text-[10px] font-bold tracking-[0.25em] text-slate-500 uppercase sm:mt-12 sm:text-xs animate-[heroSlideUp_0.7s_ease-out_0.25s_both]">
               Event starts in
             </p>
 
-            {/* --- Countdown --- */}
             <div className="mt-4 animate-[heroSlideUp_0.7s_ease-out_0.3s_both]">
               {!mounted ? (
                 <div className="mx-auto flex max-w-xs items-start justify-center gap-2.5 sm:max-w-lg sm:gap-5">
@@ -321,13 +318,12 @@ export default function MeetupMabaPage() {
               )}
             </div>
 
-            {/* --- CTA Button --- */}
             <div className="mt-8 sm:mt-10 animate-[heroSlideUp_0.7s_ease-out_0.4s_both]">
               <button
                 onClick={() => scrollTo('benefit')}
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-amber-400 px-8 py-3.5 text-sm font-bold text-slate-900 shadow-lg shadow-amber-400/25 transition-all hover:bg-amber-500 hover:shadow-xl hover:shadow-amber-400/30 active:scale-[0.97] sm:px-10 sm:py-4 sm:text-base"
               >
-                Aku Siap Bergabung
+                Informasi lebih lanjut
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </button>
             </div>
@@ -341,7 +337,7 @@ export default function MeetupMabaPage() {
       <section id="info" className="scroll-mt-16 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
-            title="Save The Date"
+            title="Informasi Acara"
             subtitle="Catat tanggalnya & jangan sampai ketinggalan momen pertama bersama camaba lainnya!"
           />
 
@@ -355,7 +351,7 @@ export default function MeetupMabaPage() {
                 />
                 <InfoChip
                   icon={<Clock className="h-5 w-5" />}
-                  label="13.30 WIB – Selesai"
+                  label="13.00 WIB – Selesai"
                 />
                 <InfoChip
                   icon={<MapPin className="h-5 w-5" />}
@@ -389,7 +385,7 @@ export default function MeetupMabaPage() {
 
             <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8">
               <h3 className="mb-5 text-lg font-bold text-slate-900">
-                Stay Connected
+                Kontak & Saluran Komunikasi
               </h3>
               <p className="mb-5 text-sm leading-relaxed text-slate-500">
                 Gabung di grup resmi untuk update terbaru & kenalan dengan teman-teman camaba lainnya
@@ -407,17 +403,17 @@ export default function MeetupMabaPage() {
                   </span>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-slate-900">
-                      Grup WhatsApp Info Utama
+                      Saluran whatsapp twensix
                     </p>
                     <p className="text-xs text-slate-500">
-                      200+ maba sudah gabung
+                      200+ maba sudah bergabung
                     </p>
                   </div>
                   <ExternalLink className="h-4 w-4 text-slate-400 transition-colors group-hover:text-green-600" />
                 </a>
 
                 <a
-                  href="https://wa.me/62882002258354?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%202026"
+                  href="https://wa.me/6285136319699?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%202026"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3.5 rounded-xl border border-green-200 bg-green-50 px-4 py-3.5 transition-all hover:border-green-300 hover:shadow-md"
@@ -427,105 +423,72 @@ export default function MeetupMabaPage() {
                   </span>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-slate-900">
-                      Chealsea (FTIK)
+                      Faiq (FTIK)
                     </p>
                     <p className="text-xs text-slate-500">
-                      +62 882-0022-58354
+                      +62 851-3631-9699
                     </p>
                   </div>
                   <ExternalLink className="h-4 w-4 text-slate-400 transition-colors group-hover:text-green-600" />
                 </a>
 
-                <a
-                  href="https://wa.me/6281212269200?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%202026"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3.5 rounded-xl border border-green-200 bg-green-50 px-4 py-3.5 transition-all hover:border-green-300 hover:shadow-md"
-                >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-sm">
-                    <Phone className="h-5 w-5" />
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm font-semibold text-slate-900">
-                      Zalfa (FEB)
-                    </p>
-                    <p className="text-xs text-slate-500">
-                      +62 812-1226-9200
-                    </p>
-                  </div>
-                  <ExternalLink className="h-4 w-4 text-slate-400 transition-colors group-hover:text-green-600" />
-                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============================================================ */}
+           {/* ============================================================ */}
       {/*  BIAYA & BENEFIT                                              */}
       {/* ============================================================ */}
       <section id="benefit" className="scroll-mt-16 bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <SectionHeading title="Join With Only" />
+          <SectionHeading title="Biaya & Benefit" />
 
-          <div className="mx-auto grid max-w-3xl gap-6 lg:grid-cols-5">
-            <div className="lg:col-span-2">
-              <div className="relative h-full overflow-hidden rounded-2xl bg-slate-900 p-6 text-left text-white shadow-xl sm:p-8">
-                <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-amber-400/15 blur-2xl" />
+          {/* --- Price Banner --- */}
+          <div className="relative mx-auto max-w-xl overflow-hidden rounded-2xl bg-slate-900 px-6 py-8 text-center shadow-2xl sm:px-10 sm:py-10">
+            <div className="pointer-events-none absolute -left-20 -top-20 h-48 w-48 rounded-full bg-amber-400/15 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-20 -right-20 h-48 w-48 rounded-full bg-cyan-400/10 blur-3xl" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent" />
 
-                <div className="mt-3">
-                  <span
-                    className="text-4xl font-extrabold text-amber-400 sm:text-5xl"
-                    style={{ fontFamily: 'var(--font-dm-sans)' }}
-                  >
-                    Rp.60.000
-                  </span>
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                  Biaya pendaftaran untuk seluruh mahasiswa baru
-                  angkatan 2026.
-                </p>
+            <p className="relative text-sm leading-relaxed text-slate-400">
+              Biaya pendaftaran untuk seluruh mahasiswa baru angkatan 2026
+            </p>
 
-                <button
-                  onClick={() => {
-                    const msg = encodeURIComponent(
-                      'Halo, saya ingin mendaftar Meetup Maba 2026!'
-                    );
-                    window.open(
-                      `https://chat.whatsapp.com/DummyLinkGrupMaba?text=${msg}`, //nanti diganti
-                      '_blank'
-                    );
-                  }}
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-slate-900 shadow-lg shadow-amber-400/20 transition-all hover:bg-amber-500 hover:shadow-xl active:scale-[0.97]"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  Daftar via WhatsApp
-                </button>
+            <p className="relative mt-3 text-[10px] font-bold tracking-[0.25em] text-amber-400/60 uppercase sm:text-xs">
+              Hanya dengan
+            </p>
 
-                <p className="mt-3 text-left text-[11px] text-slate-500">
-                  Kuota tak terbatas, daftarlah secepatnya agar tidak melewatkan event terbatas ini.
-                </p>
-              </div>
-            </div>
+            <p
+              className="relative mt-2 text-5xl font-extrabold leading-none text-amber-400 sm:text-6xl"
+              style={{ fontFamily: 'var(--font-dm-sans)' }}
+            >
+              Rp.60.000
+            </p>
 
-            <div className="lg:col-span-3">
-              <div className="rounded-2xl border border-slate-100 bg-slate-50 p-6 sm:p-8">
-                <h3 className="mb-5 text-lg font-bold text-slate-900">
-                  Apa aja yang kamu dapat?
-                </h3>
-                <ul className="flex flex-col gap-4">
-                  {BENEFITS.map((b, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-100 text-cyan-600">
-                        {b.icon}
-                      </span>
-                      <span className="pt-1 text-sm leading-relaxed text-slate-700">
-                        {b.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <p className="relative mt-4 text-[11px] leading-relaxed text-slate-500">
+              Kuota terbatas — daftarlah secepatnya agar tidak melewatkan event terbatas ini.
+            </p>
+          </div>
+
+          {/* --- Benefits List (original style) --- */}
+          <div className="mx-auto mt-10 max-w-3xl">
+            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-6 sm:p-8">
+              <h3 className="mb-5 text-lg font-bold text-slate-900">
+                Apa aja yang kamu dapat?
+              </h3>
+              <ul className="flex flex-col gap-4">
+                {BENEFITS.map((b, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-100 text-cyan-600">
+                      {b.icon}
+                    </span>
+                    <span className="pt-1 text-sm leading-relaxed text-slate-700">
+                      {b.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -537,7 +500,7 @@ export default function MeetupMabaPage() {
       <section id="galeri" className="scroll-mt-16 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading
-            title="Meetup Venue Gallery"
+            title="Galery Venue Acara"
             subtitle="Sneak peek suasana venue yang bakal jadi lokasi acara kita."
           />
 
@@ -610,7 +573,7 @@ export default function MeetupMabaPage() {
 
             <div className="flex items-center gap-4">
               <a
-                href="https://chat.whatsapp.com/DummyLinkGrupMaba" //nanti diganti
+                href="https://whatsapp.com/channel/0029Vb8aHdl0VycIdbMdCw3e"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition-colors hover:bg-green-50 hover:text-green-600"
@@ -619,7 +582,7 @@ export default function MeetupMabaPage() {
                 <MessageCircle className="h-4 w-4" />
               </a>
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6285136319699"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition-colors hover:bg-green-50 hover:text-green-600"
