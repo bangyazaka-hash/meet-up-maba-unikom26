@@ -64,12 +64,12 @@ const BENEFITS: BenefitItem[] = [
 ];
 
 const GALLERY_IMAGES = [
-  { src: '/place7.PNG', alt: 'Atap yang artistik dengan pencahayaan hangat' },
-  { src: '/place4.PNG', alt: 'Area indoor dengan dekorasi cozy' },
-  { src: '/place3.PNG', alt: 'Area berkumpul dengan meja dan kursi nyaman' },
-  { src: '/place8.PNG', alt: 'Ruang live music dengan pencahayaan artistik' },
-  { src: '/place2.PNG', alt: 'Suasana workshop kolaboratif' },
-  { src: '/place6.PNG', alt: 'Area depan dengan pencahayaan modern' },
+  { src: '/place1.png', alt: 'Atap yang artistik dengan pencahayaan hangat' },
+  { src: '/place4.png', alt: 'Area indoor dengan dekorasi cozy' },
+  { src: '/place3.png', alt: 'Area berkumpul dengan meja dan kursi nyaman' },
+  { src: '/place8.png', alt: 'Ruang live music dengan pencahayaan artistik' },
+  { src: '/place2.png', alt: 'Suasana workshop kolaboratif' },
+  { src: '/place6.png', alt: 'Area depan dengan pencahayaan modern' },
 ];
 
 /* ------------------------------------------------------------------ */
