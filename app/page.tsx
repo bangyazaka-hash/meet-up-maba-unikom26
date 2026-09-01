@@ -437,7 +437,7 @@ export default function MeetupMabaPage() {
                 </a>
 
                 <a
-                  href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%202026"
+                  href="https://wa.me/6281212269200?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Meetup%20Maba%202026"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3.5 rounded-xl border border-green-200 bg-green-50 px-4 py-3.5 transition-all hover:border-green-300 hover:shadow-md"
@@ -447,10 +447,10 @@ export default function MeetupMabaPage() {
                   </span>
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-slate-900">
-                      CP Panitia 2 (WhatsApp)
+                      Zalfa (FEB)
                     </p>
                     <p className="text-xs text-slate-500">
-                      +62 812-3456-7890
+                      +62 812-1226-9200
                     </p>
                   </div>
                   <ExternalLink className="h-4 w-4 text-slate-400 transition-colors group-hover:text-green-600" />
