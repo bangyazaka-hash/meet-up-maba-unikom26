@@ -212,7 +212,7 @@ export default function MeetupMabaPage() {
               onClick={() => scrollTo('benefit')}
               className="rounded-lg bg-amber-400 px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm transition-all hover:bg-amber-500 hover:shadow-md"
             >
-              Daftar Sekarang
+              Informasi lebih lanjut
             </button>
           </div>
 
