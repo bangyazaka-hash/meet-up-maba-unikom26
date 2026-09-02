@@ -347,7 +347,7 @@ export default function MeetupMabaPage() {
               <div className="flex flex-col gap-3">
                 <InfoChip
                   icon={<Calendar className="h-5 w-5" />}
-                  label="Kamis, 8 September 2026"
+                  label="Selasa, 8 September 2026"
                 />
                 <InfoChip
                   icon={<Clock className="h-5 w-5" />}
@@ -378,7 +378,7 @@ export default function MeetupMabaPage() {
                   <li>Dilarang membawa <strong>senjata tajam / benda berbahaya</strong> dalam bentuk apapun</li>
                 </ul>
                 <p className="mt-2.5 text-xs font-medium text-red-500">
-                  Pelanggaran akan ditindaklanjuti sesuai peraturan kampus dan hukum yang berlaku.
+                  Pelanggaran akan ditindaklanjuti sesuai peraturan dan hukum yang berlaku.
                 </p>
               </div>
             </div>
