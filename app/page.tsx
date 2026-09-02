@@ -355,7 +355,7 @@ export default function MeetupMabaPage() {
                 />
                 <InfoChip
                   icon={<MapPin className="h-5 w-5" />}
-                  label="Jl Jurang 94 40161 Pasteur Bandung Jawa Barat"
+                  label="Randa Cafe Jl Jurang 94 40161 Pasteur Bandung Jawa Barat"
                 />
               </div>
 
